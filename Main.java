@@ -28,40 +28,45 @@ public class Main {
             WriteXMLFile.write(hero_stack, file_name);
             String[] command = input.nextLine().split(" ", 2);
 
-            switch (command[0]) {
+            try {
 
-                case ("clear"):
-                    clear(hero_stack);
-                    break;
+	            switch (command[0]) {
 
-                case ("info"):
-                    print_info(hero_stack, file_name, stack_initialization_time.toString());
-                    break;
+	                case ("clear"):
+	                    clear(hero_stack);
+	                    break;
 
-                case ("remove_last"):
-                    remove_last(hero_stack);
-                    break;
+	                case ("info"):
+	                    print_info(hero_stack, file_name, stack_initialization_time.toString());
+	                    break;
 
-                case ("show"):
-                    hero_stack = show(hero_stack);
-                    break;
+	                case ("remove_last"):
+	                    remove_last(hero_stack);
+	                    break;
 
-                case ("add"):
-                    hero_stack = add(hero_stack, command[1]);
-                    hero_stack = SortStack.sort_stack(hero_stack);
-                    break;
+	                case ("show"):
+	                    hero_stack = show(hero_stack);
+	                    break;
 
-                case ("remove"):
-                    hero_stack = remove(hero_stack, command[1]);
-                    hero_stack = SortStack.sort_stack(hero_stack);
-                    break;
+	                case ("add"):
+	                    hero_stack = add(hero_stack, command[1]);
+	                    hero_stack = SortStack.sort_stack(hero_stack);
+	                    break;
 
-                case ("add_if_max"):
-                    hero_stack = add_if_max(hero_stack, command[1]);
-                    hero_stack = SortStack.sort_stack(hero_stack);
-                    break;
+	                case ("remove"):
+	                    hero_stack = remove(hero_stack, command[1]);
+	                    hero_stack = SortStack.sort_stack(hero_stack);
+	                    break;
 
-            }
+	                case ("add_if_max"):
+	                    hero_stack = add_if_max(hero_stack, command[1]);
+	                    hero_stack = SortStack.sort_stack(hero_stack);
+	                    break;
+
+	            }
+	        } catch (Exception e) {
+	        	e.printStackTrace();
+	        }
         }
     }
 

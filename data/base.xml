@@ -4,4 +4,8 @@
         <firstname>ARTEM</firstname>
         <age>18</age>
     </hero>
+    <hero>
+        <firstname>ARTEM</firstname>
+        <age>18</age>
+    </hero>
 </heroes_data>
