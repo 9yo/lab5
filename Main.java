@@ -20,7 +20,7 @@ public class Main {
         sb.append(file_name);
         sb.append(".xml");
       	String file_path = sb.toString();
-      	
+
         Stack < Hero > hero_stack = new Stack < > ();
         Date stack_initialization_time = new Date();
 
@@ -185,7 +185,6 @@ public class Main {
         String hero_age = obj.getJSONObject("hero").getString("age");
         Hero hero = hero_stack.peek();
         Hero json_hero = new Hero(hero_name, Integer.parseInt(hero_age));
-        System.out.println(hero.compareTo(json_hero));
         if (hero.compareTo(json_hero) > 0) {
             hero_stack.push(json_hero);
         }
