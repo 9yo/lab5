@@ -3,6 +3,7 @@ import java.util.Scanner;
 import java.util.Date;
 import java.io.File;
 import org.json.*;
+import java.io.FileNotFoundException;
 
 public class Main {
 
@@ -14,10 +15,28 @@ public class Main {
         }
 
         String file_name = args[0];
-
+        StringBuilder sb = new StringBuilder();
+        sb.append("data/");
+        sb.append(file_name);
+        sb.append(".xml");
+      	String file_path = sb.toString();
+      	
         Stack < Hero > hero_stack = new Stack < > ();
         Date stack_initialization_time = new Date();
-        hero_stack = ReadXMLFile.read(file_name);
+
+        File file = new File(file_path);
+        if (!file.exists()) {
+        	try {
+        		file.createNewFile();
+        	} catch (java.io.IOException e) {
+        		e.printStackTrace();
+        	}
+
+        	}
+        
+
+
+        //hero_stack = ReadXMLFile.read(file_name);
         hero_stack = SortStack.sort_stack(hero_stack);
 
         boolean running = true;
@@ -166,6 +185,7 @@ public class Main {
         String hero_age = obj.getJSONObject("hero").getString("age");
         Hero hero = hero_stack.peek();
         Hero json_hero = new Hero(hero_name, Integer.parseInt(hero_age));
+        System.out.println(hero.compareTo(json_hero));
         if (hero.compareTo(json_hero) > 0) {
             hero_stack.push(json_hero);
         }

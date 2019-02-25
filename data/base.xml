@@ -2,6 +2,10 @@
 <heroes_data>
     <hero>
         <firstname>ARTEM</firstname>
+        <age>17</age>
+    </hero>
+    <hero>
+        <firstname>ARTEM</firstname>
         <age>18</age>
     </hero>
     <hero>
